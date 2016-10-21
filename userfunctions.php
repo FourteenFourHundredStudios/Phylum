@@ -186,7 +186,18 @@ function getPost($postId){
 		}	
 	}
 
+function rate($id,$stars){
+	global $conn;
+	$sql = "SELECT * from posts where `id` = '".$id."'";
+	$result = $conn->query($sql);
+	$row = $result->fetch_assoc();
+	$ratings =json_decode($row["rating"],true);
+	array_push($ratings,$stars);		
 
+	$sqlu="UPDATE `Phylum`.`posts` SET `rating`='".json_encode($ratings)."' WHERE `id`='".$id."'";
+	$conn->query($sqlu);
+	//print_r($ratings);
+}
 
 function followStatus($username){
 	global $conn;

@@ -167,7 +167,7 @@ Media | Files | Posts
 		content+="</div>";
 		
 		content+='<br><input type="button" onClick="closeRate('+message.id+')" class="boxButtonDark" style="width:30%" value="Cancel">';
-		content+='<input type="button" class="boxButtonDark" style="width:30%" value="Rate!">';
+		content+='<input type="button" onClick="saveRate('+id+')" class="boxButtonDark" style="width:30%" value="Rate!">';
 
 		message.innerHTML+=content;
 	}
@@ -180,19 +180,23 @@ Media | Files | Posts
 		delete element;
 	}
 
-	function setRate(id, rate){
+	function saveRate(id){
+		window.location="rate.php?post="+id+"&stars="+message.stars;
+	}
+
+	function setRate(id, rate, postid){
 		//alert(id+","+rate);
 	//	alert(rate);
 		for (var i=0;i<document.getElementById(id).childNodes.length;i++){
 			if(document.getElementById(id).childNodes[i].id == "ratings" ){
 
 				//alert(rate);
-
+				message.stars=rate;
 
 				starDisplay="";
 
 				for(var j=1;j<rate+1;j++){
-					starDisplay+= "<img onClick='setRate("+message.id+","+(j)+")' src='/images/star_full.png' width='40' height='30'>";
+				starDisplay+= "<img onClick='setRate("+message.id+","+(j)+")' src='/images/star_full.png' width='40' height='30'>";
 					stars=j;
 				}
 
