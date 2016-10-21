@@ -2,7 +2,7 @@
 --
 -- Host: 127.0.0.1    Database: Phylum
 -- ------------------------------------------------------
--- Server version	5.7.14
+-- Server version	5.7.16
 
 /*!40101 SET @OLD_CHARACTER_SET_CLIENT=@@CHARACTER_SET_CLIENT */;
 /*!40101 SET @OLD_CHARACTER_SET_RESULTS=@@CHARACTER_SET_RESULTS */;
@@ -30,6 +30,7 @@ CREATE TABLE `posts` (
   `filename` varchar(100) DEFAULT NULL,
   `posttype` varchar(45) DEFAULT NULL,
   `id` varchar(45) DEFAULT NULL,
+  `rating` varchar(45) DEFAULT '[]',
   PRIMARY KEY (`date`),
   UNIQUE KEY `id_UNIQUE` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=latin1;
@@ -44,4 +45,4 @@ CREATE TABLE `posts` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-08-12 23:51:09
+-- Dump completed on 2016-10-20 23:12:48
