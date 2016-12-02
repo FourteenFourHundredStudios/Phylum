@@ -14,7 +14,7 @@ include('userfunctions.php');
 
 
 <div style="">
-	<ul class ="navBar" id="navBar">
+	<ul class ="navBar" id="navBar" style="height:60px">
 		<li><input type="button" style="float:left;" class="boxButtonDark" onclick="window.location='/feed.php';" value="Feed"></li>
 		<li><input type="button"  onclick="window.location='/logout.php';" style="float:right;" class="boxButtonDark" value="Logout"></li>
 		<li><input type="button" style="float:right;" onclick="javascript:redirect('feed.php?user=<?php echo $_SESSION['username'] ?>')" class="boxButtonDark" value="<?php echo $_SESSION['username'] ?>"></li>
@@ -31,7 +31,7 @@ include('userfunctions.php');
 		<form action="post.php" method="post" enctype="multipart/form-data">
 			<!--div class="boxTitle" style="margin-left:auto">Create a post!</div><br-->
 			<input type="submit" value="post" class="boxButtonDark">
-			<input class="boxText" type="text" placeholder="comment" name="caption" style="width:60%">
+			<input class="boxText" type="text" placeholder="caption" name="caption" style="width:60%">
 			
 			<input type="file" align="center" name="userFile" id="userFile" value="select file" onclick="" >
 		</form>
@@ -59,7 +59,8 @@ include('userfunctions.php');
 	//	alert("navBar expanding");
 
 		bar = document.getElementById("navBar");
-		if(bar.style.height==="60px"){
+		//alert(bar.style.height);
+		if(bar.style.height=="60px"){
 			bar.style.height =  '120px';
 		}else{
 			bar.style.height =  '60px';

@@ -10,12 +10,14 @@ function getProfpic($username){
 
 	if ($result->num_rows > 0) {
 		$row = $result->fetch_assoc();
-		return "<img style='max-width:60px;max-height:60px;' src='/media.php?id=".$row["picurl"]."'><br> ";
+		return "<img style='max-width:90%;max-height:90%;height:40px;' src='/media.php?id=".$row["picurl"]."'> ";
 
 	}
 
 	return "whatttt";
 }
+
+
 
 function getProperty($username,$property){
 	global $conn;
@@ -119,7 +121,7 @@ function getPost($postId){
 					for($i=0;$i<(5-$avgRating);$i++){
 						echo "<img src='/images/star_empty.png'>";
 					}
-
+ 
 				?>
 
 				
@@ -142,6 +144,8 @@ function getPost($postId){
 					</div> 
 					<br><br><br>
 				</div>
+
+
 				<hr>
 
 				<?php echo $row["caption"]; ?>
@@ -162,22 +166,27 @@ function getPost($postId){
 				<?php } else if($row["posttype"]=="download"){?>
 					<br><br>
 					<!-- something that says it's a download-->
-					<i><b>Downlad <?=$row["filename"]?></b></i>
+					<i><b>Download <?=$row["filename"]?></b></i>
 				<?php } ?>
 
 			</div><br><br><br>
+			
+
 
 			<div class="boxContentBottom" >	
-				<!--				
-				<h4 style="bottom:-50%; left: 50%;margin-left: -50px;position:absolute;">Download now!</h4>-->
+
 				<div style="padding:5px">
-					<a class="boxlink" onclick="javascript:rate('<?= $row["id"] ?>')">Rate</a> ·
-					<a class="boxlink">Comment</a> ·
+
+					<a class="boxlink" onClick="javascript:rate('<?= $row["id"] ?>')">Rate</a> ·
+					<a class="boxlink" onClick="javascript:comment('comment<?= $row["id"] ?>')">Comment</a> ·
 					<a class="boxlink" onclick="javascript:download('<?= $row["id"] ?>')">Download</a>
 				</div>
 			</div>
 
+
 		</div>
+		<br> 
+		<div id="comment<?= $row["id"] ?>"></div>
 
 	<?php
 			}
@@ -228,8 +237,5 @@ function followStatus($username){
 
 <script type="text/javascript">
 
-	function changeColor(el){
-		
-	}
 
 </script>

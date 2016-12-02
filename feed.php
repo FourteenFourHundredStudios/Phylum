@@ -130,7 +130,7 @@ Media | Files | Posts
 
 
 <script type="text/javascript">
-
+	
 	function download(id){
 		document.getElementById('downloadframe').src = "/media.php?id="+id+"&download=yes";
 	}
@@ -182,6 +182,31 @@ Media | Files | Posts
 
 	function saveRate(id){
 		window.location="rate.php?post="+id+"&stars="+message.stars;
+	}
+
+
+	function sendComment(e) {
+		
+	    if (e.keyCode == 13) {
+	     //   var tb = document.getElementById("scriptBox");
+	       alert("dd");
+	        return false;
+	    }
+	}
+
+	function comment(id){
+		//<div class='boxContainer'></div>
+
+		 var xhReq = new XMLHttpRequest();
+		 xhReq.open("GET", "comment.php?id="+id, false);
+		 xhReq.send(null);
+		 var serverResponse = xhReq.responseText;
+		 //alert(serverResponse);
+
+		//input=serverResponse;
+	//	if(serverResponse!=null){
+			document.getElementById(id).innerHTML=serverResponse;
+	//	}
 	}
 
 	function setRate(id, rate, postid){
