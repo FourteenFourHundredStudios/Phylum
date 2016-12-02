@@ -186,7 +186,7 @@ function getPost($postId){
 
 		</div>
 		<br> 
-		<div id="comment<?= $row["id"] ?>"></div>
+		<div id="csec<?= $row["id"] ?>"></div>
 
 	<?php
 			}

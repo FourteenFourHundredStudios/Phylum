@@ -185,27 +185,39 @@ Media | Files | Posts
 	}
 
 
-	function sendComment(e) {
+	function sendComment(e,id,postid) {
 		
 	    if (e.keyCode == 13) {
 	     //   var tb = document.getElementById("scriptBox");
-	       alert("dd");
+	    // alert("combox"+id);
+	       	val=document.getElementById(id).value;
+	       	 var xhReq = new XMLHttpRequest();
+	      // 	 postid=postid;
+			 xhReq.open("GET", "sendComment.php?id="+postid.replace("comment","")+"&c="+val, false);
+			 xhReq.send(null);
+
+			 //document.getElementById(id).value="";
+
+			 //alert("comment"+postid);
+			 comment(postid);
+
 	        return false;
 	    }
 	}
 
 	function comment(id){
 		//<div class='boxContainer'></div>
-
+	
 		 var xhReq = new XMLHttpRequest();
-		 xhReq.open("GET", "comment.php?id="+id, false);
+		 xhReq.open("GET", "comment.php?id="+(id.replace("comment","")), false);
 		 xhReq.send(null);
 		 var serverResponse = xhReq.responseText;
 		 //alert(serverResponse);
 
 		//input=serverResponse;
 	//	if(serverResponse!=null){
-			document.getElementById(id).innerHTML=serverResponse;
+		//alert("commentsec"+id);
+		document.getElementById("csec"+id.replace("comment","")).innerHTML=serverResponse;
 	//	}
 	}
 

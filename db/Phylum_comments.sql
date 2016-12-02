@@ -26,6 +26,7 @@ CREATE TABLE `comments` (
   `date` varchar(45) NOT NULL,
   `postid` varchar(45) NOT NULL,
   `username` varchar(500) NOT NULL,
+  `comment` varchar(45) DEFAULT NULL,
   PRIMARY KEY (`date`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 /*!40101 SET character_set_client = @saved_cs_client */;
@@ -39,4 +40,4 @@ CREATE TABLE `comments` (
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
 /*!40111 SET SQL_NOTES=@OLD_SQL_NOTES */;
 
--- Dump completed on 2016-10-20 23:12:49
+-- Dump completed on 2016-12-01 21:32:36
